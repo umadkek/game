@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class Location {
     private String name;
     private String description;
@@ -11,22 +12,22 @@ public class Location {
     }
 
     public String getName() {
-        return name; //gets name
+        return name; // gets name
     }
 
-    public List<Adventurer> getAdventurers() {
-        return adventurers; //gets all adventurers
+    public ArrayList<Adventurer> getAdventurers() {
+        return adventurers; // gets all adventurers
     }
 
     public String getDescription() {
-        return description; //returns description
+        return description; // returns description
     }
 
     public void addAdventurer(Adventurer adventurer) {
-        this.adventurers.add(adventurer); //adds an adventurer to arraylist adventurers
+        this.adventurers.add(adventurer); // adds an adventurer to arraylist adventurers
     }
 
     public void removeAdventurer(Adventurer adventurer) {
-        this.adventurers.remove(adventurer); //removes an adventurer from arraylist adventurers
+        this.adventurers.remove(adventurer); // removes an adventurer from arraylist adventurers
     }
 }
