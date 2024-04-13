@@ -14,7 +14,10 @@ public class Game {
         this.currentLocation = new Location("Home Base", "The starting point"); // makes home base (default starting
                                                                                 // point)
         this.locations = new ArrayList<Location>();
-        this.locations.add(new Location("Home Base", "The starting point")); // adds
+        this.locations.add(new Location("Home Base", "The starting point")); // adds home base
+        Location forest = new Location("Forest", "A dense forest with tall trees"); // new location forest and
+        locations.add(forest); // adds to locations list
+        forest.addAdventurer(new Adventurer("Goblin", 100, 2)); // add goblin enemy to forest location
     }
 
     public void startGame() {
@@ -22,12 +25,8 @@ public class Game {
 
         boolean continuePlaying = true; // thing to control game loop
 
-        Location forest = new Location("Forest", "A dense forest with tall trees"); // new location forest and
-        locations.add(forest); // adds to locations list
-        forest.addAdventurer(new Adventurer("Goblin", 100, 2)); // add goblin enemy to forest location
-
         while (continuePlaying) { // just a loop to do while the player wants to continue playing
-            System.out.println("Current Location: [" + currentLocation.getName() + "]"); // prints location
+            System.out.println("\nCurrent Location: [" + currentLocation.getName() + "]"); // prints location
             System.out.println("Input a command");
             System.out.print("> "); // lets user input command
             String userCommand = scanner.nextLine();
@@ -65,6 +64,23 @@ public class Game {
                     }
                     break;
 
+                case"credits": // prints credits a method isnt really needed for this
+                    System.out.println("\nDeveloped by: umadkek\n");
+                    System.out.println("Testing by: umadkek\n");
+                    System.out.println("Utilities: \nJava Version 8\nVisual Studio Code Version 1.88.1\nGit GUI Version 0.21\n");
+                    break;
+
+                case"getstats":
+                // asks user who to get status of
+                    System.out.println("Which adventurer would you like to get the status of? (You can only get the status of adventurers in your location!)");
+                    // prints all adventurers in location
+                    System.out.println("Adventurers in location " + currentLocation.getName() + ":");
+                    currentLocation.printAdventurers();
+                    // gets user input
+                    String userStatusChoice = scanner.nextLine();
+                    getStats(userStatusChoice);
+                    break;
+
                 case "quit":
                     // set continueplaying to false to break game loop
                     continuePlaying = false;
@@ -97,7 +113,7 @@ public class Game {
             }
         }
         // prints error message if location is invalid and ends move method
-        System.out.println("Invaldid location!");
+        System.out.println("Invalid location!");
         return;
     }
 
@@ -120,6 +136,16 @@ public class Game {
             }
         } else { // tryna attack a dead person is crazy though
             System.out.println(opponent.getName() + " is already defeated.");
+        }
+    }
+
+    public void getStats(String adventurer) {
+        for (Adventurer adv : currentLocation.getAdventurers()) {
+            if(adventurer.equalsIgnoreCase(adv.getName()) && !adventurer.equalsIgnoreCase(this.adventurer.getName())){ // for if loop that i cba to explain in comments
+                System.out.println("Name: " + adv.getName());
+                System.out.println("Health: " + adv.getHealth());
+                System.out.println("Strength: " + adv.getAttackPower()); // prints details of adventurers in current location
+            }
         }
     }
 }

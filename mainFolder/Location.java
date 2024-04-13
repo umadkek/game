@@ -19,6 +19,12 @@ public class Location {
         return adventurers; // gets all adventurers
     }
 
+    public void printAdventurers() {
+        for (Adventurer adv : adventurers) {
+            System.out.println(adv.getName());
+        }
+    }
+
     public String getDescription() {
         return description; // returns description
     }
