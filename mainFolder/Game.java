@@ -27,7 +27,7 @@ public class Game {
 
         while (continuePlaying) { // just a loop to do while the player wants to continue playing
             System.out.println("\nCurrent Location: [" + currentLocation.getName() + "]"); // prints location
-            System.out.println("Input a command");
+            System.out.println("Input a command (type \'help\' to get a list of every command!): ");
             System.out.print("> "); // lets user input command
             String userCommand = scanner.nextLine();
 
@@ -79,6 +79,10 @@ public class Game {
                     // gets user input
                     String userStatusChoice = scanner.nextLine();
                     getStats(userStatusChoice);
+                    break;
+
+                case"help": // a list of every command
+                    System.out.println("move: lets you move to a different location\nattack: lets you attack an adventurer at your current location\ngetstats: gets the statistics of an adventurer at your location\ncredits: displays game credits\nquit: quits the game");
                     break;
 
                 case "quit":
