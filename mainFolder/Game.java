@@ -57,11 +57,12 @@ public class Game {
                     String userAttackChoice = scanner.nextLine();
                     // iterate over all adventurers
                     for (Adventurer adv : currentLocation.getAdventurers()) {
-                        if (adv.getName().equalsIgnoreCase(userAttackChoice)) {
+                        if (adv.getName().equalsIgnoreCase(userAttackChoice) && !adv.getName().equalsIgnoreCase(adventurer.getName())) {
                             fight(adv); // if chosen adventurer is found call fight method
                             break;
                         }
                     }
+                    System.out.println("Invalid Adventurer!");
                     break;
 
                 case"credits": // prints credits a method isnt really needed for this
