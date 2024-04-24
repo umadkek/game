@@ -51,7 +51,7 @@ public class Game {
                     System.out.println("Who would you like to attack?\n");
                     int foradvnum = 1;
                     for (Adventurer adv : currentLocation.getAdventurers()) {
-                        if(!adv.getName().equalsIgnoreCase(currentLocation.getName())) {
+                        if(!adv.getName().equalsIgnoreCase(adventurer.getName())) {
                             System.out.println(foradvnum + ". " + adv.getName());
                             foradvnum++;    
                         }
@@ -62,9 +62,11 @@ public class Game {
                         if (adv.getName().equalsIgnoreCase(userAttackChoice) && !adv.getName().equalsIgnoreCase(adventurer.getName())) {
                             fight(adv); // if chosen adventurer is found call fight method
                             break;
+                        } else {
+                            System.out.println("Invalid Adventurer!");
+                            break;
                         }
                     }
-                    System.out.println("Invalid Adventurer!");
                     break;
 
                 case"credits": // prints credits a method isnt really needed for this
@@ -110,7 +112,7 @@ public class Game {
         // iterate over all locations
         for (Location loc : locations) {
             // if chosen location is found print a message and move user to chosen location
-            if (loc.getName().equalsIgnoreCase(locationName) && !loc.getName().equalsIgnoreCase(currentLocation.getName()) {
+            if (loc.getName().equalsIgnoreCase(locationName) && !loc.getName().equalsIgnoreCase(currentLocation.getName())) {
                 System.out.println("\nAdventurer: " + adventurer.getName() + " has moved from "
                         + currentLocation.getName() + " to " + loc.getName() + "!\n");
                 currentLocation.removeAdventurer(adventurer);
