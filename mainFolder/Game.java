@@ -51,8 +51,10 @@ public class Game {
                     System.out.println("Who would you like to attack?\n");
                     int foradvnum = 1;
                     for (Adventurer adv : currentLocation.getAdventurers()) {
-                        System.out.println(foradvnum + ". " + adv.getName());
-                        foradvnum++;
+                        if(!adv.getName().equalsIgnoreCase(currentLocation.getName())) {
+                            System.out.println(foradvnum + ". " + adv.getName());
+                            foradvnum++;    
+                        }
                     }
                     String userAttackChoice = scanner.nextLine();
                     // iterate over all adventurers
@@ -108,7 +110,7 @@ public class Game {
         // iterate over all locations
         for (Location loc : locations) {
             // if chosen location is found print a message and move user to chosen location
-            if (loc.getName().equalsIgnoreCase(locationName)) {
+            if (loc.getName().equalsIgnoreCase(locationName) && !loc.getName().equalsIgnoreCase(currentLocation.getName()) {
                 System.out.println("\nAdventurer: " + adventurer.getName() + " has moved from "
                         + currentLocation.getName() + " to " + loc.getName() + "!\n");
                 currentLocation.removeAdventurer(adventurer);
@@ -121,6 +123,7 @@ public class Game {
         System.out.println("Invalid location!");
         return;
     }
+
 
     // fight method
     public void fight(Adventurer opponent) {
