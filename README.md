@@ -1,6 +1,6 @@
 # Text Based Adventure Game
 Developed by: umadkek <br>
-Testing by: umadkek
+Testing by: umadkek <br>
 Utilities:
 - Java Version 8
 - Visual Studio Code Version 1.88.1
