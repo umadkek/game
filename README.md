@@ -1,5 +1,5 @@
 # Text Based Adventure Game
-Developed by: umadkek
+Developed by: umadkek <br>
 Testing by: umadkek
 Utilities:
 - Java Version 8
