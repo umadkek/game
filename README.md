@@ -1,3 +1,7 @@
-# game
-just a random text based game i decided to make
-sub to me on yt i guess
+# Text Based Adventure Game
+Developed by: umadkek
+Testing by: umadkek
+Utilities:
+- Java Version 8
+- Visual Studio Code Version 1.88.1
+- Git GUI Version 0.21
